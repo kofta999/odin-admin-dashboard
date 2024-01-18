@@ -1,14 +1,15 @@
 * {
   box-sizing: border-box;
   min-width: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --sidebar-text-color: #fafafa;
 }
 
 body {
   min-height: 100dvh;
   margin: 0;
   display: grid;
-  grid-template-columns: minmax(250px, 0.5fr) 2fr;
+  grid-template-columns: minmax(300px, 0.5fr) 2fr;
   grid-template-rows: 0.5fr 2fr;
 }
 
@@ -26,10 +27,25 @@ p {
 
 .sidebar {
   padding: 20px;
-  color: #fafafa;
+  color: var(--sidebar-text-color);
   background-color: #0284c7;
   grid-column: 1;
   grid-row: 1 / -1;
+}
+
+.sidebar svg {
+  fill: var(--sidebar-text-color);
+}
+
+h1 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  & svg {
+    min-width: 1.5em;
+    width: 1.5em;
+  }
 }
 
 .sidebar ul {
@@ -40,6 +56,18 @@ p {
   gap: 20px;
   list-style: none;
   padding: 0;
+}
+
+.sidebar ul li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  & svg {
+    width: 1em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+  }
 }
 
 .main-links {
