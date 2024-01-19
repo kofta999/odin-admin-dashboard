@@ -3,6 +3,7 @@
   min-width: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --sidebar-text-color: #fafafa;
+  --sidebar-color: #0284c7;
 }
 
 body {
@@ -28,7 +29,7 @@ p {
 .sidebar {
   padding: 20px;
   color: var(--sidebar-text-color);
-  background-color: #0284c7;
+  background-color: var(--sidebar-color);
   grid-column: 1;
   grid-row: 1 / -1;
 }
@@ -79,6 +80,108 @@ h1 {
   background-color: #f8fafc;
   position: relative;
   box-shadow: 0px 5px 10px rgba(55, 55, 55, 0.1);
+  padding: 20px 50px;
+  display: grid;
+  gap: 20px 60px;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "search profile"
+    "welcome btn-row";
+}
+
+.header .search {
+  grid-area: "search";
+  display: grid;
+  grid-template-columns: minmax(30px, 0.05fr) minmax(100px, 0.95fr);
+  align-items: center;
+  gap: 10px;
+  & #search-icon {
+    height: 30px;
+  }
+
+  & #search-bar {
+    background-color: #e5e7eb;
+    border-radius: 25px;
+    height: 30px;
+    border: none;
+  }
+}
+
+.header .profile {
+  grid-area: "profile";
+  display: grid;
+  gap: 30px;
+  grid-template-columns: minmax(30px, 0.1fr) minmax(50px, 0.15fr) minmax(
+      50px,
+      0.5fr
+    );
+  align-items: center;
+  justify-items: center;
+  justify-content: end;
+
+  & > img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  & > svg {
+    height: auto;
+  }
+
+  & > p {
+    font-size: 1.25em;
+    text-align: center;
+  }
+}
+
+.header .welcome {
+  grid-area: "welcome";
+  display: grid;
+  align-items: center;
+  justify-items: left;
+  grid-template-columns: minmax(75px, 0.1fr) 1fr;
+  gap: 0 20px;
+
+  & > img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  & .welcome-message h2,
+  .welcome-message p {
+    margin: 0;
+    padding: 0;
+  }
+
+  & .welcome-message p {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+}
+
+.header .btn-row {
+  grid-area: "btn-row";
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: 30px;
+  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  justify-content: space-between;
+}
+
+.btn {
+  border-radius: 30px;
+  height: 60%;
+  width: 90%;
+  text-align: center;
+  background-color: var(--sidebar-color);
+  color: var(--sidebar-text-color);
+  border: none;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .main {
